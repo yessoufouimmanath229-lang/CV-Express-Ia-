@@ -22,10 +22,16 @@ Génération instantanée de CV et lettres de motivation professionnels et perso
 
 ## Configuration
 
+Le projet est hébergé sur GitHub : [CV-Express-Ia-](https://github.com/yessoufouimmanath229-lang/CV-Express-Ia-)
+
 Pour activer la génération réelle via l'IA, créez un fichier `.env` à la racine du projet (voir `.env.example`) :
 ```env
 EXPO_PUBLIC_OPENAI_API_KEY=votre_cle_api
 ```
+
+## Déploiement
+
+Pour des instructions détaillées sur le déploiement Web (Vercel/Netlify), consultez le fichier [DEPLOYMENT.md](./DEPLOYMENT.md).
 
 ## Fonctionnalités MVP
 
