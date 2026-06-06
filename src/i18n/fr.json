@@ -35,7 +35,16 @@
     "error_email_required": "Veuillez saisir votre email",
     "success_title": "Email envoyé !",
     "success_msg": "Consultez votre boîte mail pour vous connecter via le Magic Link.",
+    "referral_code_placeholder": "Code de parrainage (Optionnel)",
     "error_title": "Erreur"
+  },
+  "profile": {
+    "title": "Profil",
+    "referral_section": "Parrainage",
+    "referral_code_label": "Votre code de parrainage :",
+    "referral_desc": "Partagez ce code avec vos amis. Lorsqu'ils s'inscrivent, vous recevez une génération Premium gratuite !",
+    "credits_label": "Générations offertes disponibles :",
+    "copy_code": "Copier le code"
   },
   "form": {
     "title": "Créez votre CV Express",

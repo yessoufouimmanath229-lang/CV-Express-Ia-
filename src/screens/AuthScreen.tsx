@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 export default function AuthScreen({ navigation }: any) {
   const { t } = useTranslation();
   const [email, setEmail] = useState('');
+  const [referralCode, setReferralCode] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleMagicLink = async () => {
@@ -19,6 +20,9 @@ export default function AuthScreen({ navigation }: any) {
       email,
       options: {
         emailRedirectTo: 'cvexpressia://login-callback',
+        data: {
+          referral_code: referralCode.trim().toUpperCase() || undefined
+        }
       },
     });
 
@@ -49,6 +53,14 @@ export default function AuthScreen({ navigation }: any) {
         onChangeText={setEmail}
         autoCapitalize="none"
         keyboardType="email-address"
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder={t('auth.referral_code_placeholder') || 'Referral Code (Optional)'}
+        value={referralCode}
+        onChangeText={setReferralCode}
+        autoCapitalize="characters"
       />
 
       <TouchableOpacity 

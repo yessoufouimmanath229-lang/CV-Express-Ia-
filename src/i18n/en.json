@@ -35,7 +35,16 @@
     "error_email_required": "Please enter your email",
     "success_title": "Email sent!",
     "success_msg": "Check your mailbox to log in via the Magic Link.",
+    "referral_code_placeholder": "Referral Code (Optional)",
     "error_title": "Error"
+  },
+  "profile": {
+    "title": "Profile",
+    "referral_section": "Referral",
+    "referral_code_label": "Your referral code:",
+    "referral_desc": "Share this code with your friends. When they sign up, you receive one free Premium generation!",
+    "credits_label": "Bonus generations available:",
+    "copy_code": "Copy Code"
   },
   "form": {
     "title": "Create your Express CV",

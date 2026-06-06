@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { CVFormValues } from '../types/form';
 import { GeneratedCV } from '../types/cv';
 import { supabase } from './supabase.service';
+import { getProfile } from './profile.service';
 
 const FORM_DATA_KEY = '@cv_express_form_data';
 const DOCUMENTS_HISTORY_KEY = '@cv_express_documents_history';
@@ -104,8 +105,13 @@ export const getDocumentsHistory = async (): Promise<SavedDocument[]> => {
 
 export const isUserPremium = async (): Promise<boolean> => {
   try {
-    const isPremium = await AsyncStorage.getItem(IS_PREMIUM_KEY);
-    return isPremium === 'true';
+    // 1. Check local storage
+    const localPremium = await AsyncStorage.getItem(IS_PREMIUM_KEY);
+    if (localPremium === 'true') return true;
+
+    // 2. Check profile if logged in
+    const profile = await getProfile();
+    return profile?.is_premium || false;
   } catch (error) {
     return false;
   }
@@ -124,5 +130,9 @@ export const canGenerateMore = async (): Promise<boolean> => {
   if (premium) return true;
   
   const history = await getDocumentsHistory();
-  return history.length < 1; // Limit to 1 for free users
+  const profile = await getProfile();
+  
+  // Base limit is 1, plus any referral credits
+  const bonusCredits = profile?.credits || 0;
+  return history.length < (1 + bonusCredits);
 };
